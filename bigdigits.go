@@ -78,3 +78,24 @@ var bigDigits = [][]string{
 		"   9 ",
 		"   9 ",
 		"  9  "}}
+
+func main() {
+	if len(os.Args) == 1 {
+		fmt.Printf("usage: %s <number>\n", filepath.Base(os.Args[0]))
+		os.Exit(1)
+	}
+
+	stringOfDigits := os.Args[1]
+	for row := range bigDigits[0] { // each number should be seven lines long
+		line := ""
+		for column := range stringOfDigits {
+			digit := stringOfDigits[column]
+			if 0 <= digit && digit <= 9 {
+				line += bigDigits[digit][row] + " "
+			} else {
+				log.Fatal("invalid number, is it a whole number?")
+			}
+		}
+		fmt.Println(line)
+	}
+}
