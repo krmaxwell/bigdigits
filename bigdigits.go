@@ -89,7 +89,7 @@ func main() {
 	for row := range bigDigits[0] { // each number should be seven lines long
 		line := ""
 		for column := range stringOfDigits {
-			digit := stringOfDigits[column]
+			digit := stringOfDigits[column] - '0'
 			if 0 <= digit && digit <= 9 {
 				line += bigDigits[digit][row] + " "
 			} else {
